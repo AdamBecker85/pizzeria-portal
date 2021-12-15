@@ -11,7 +11,8 @@
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "esw --watch --clear"
   },
   "husky": {
     "hooks": {
@@ -52,5 +53,8 @@
     "redux": "^4.1.2",
     "sass": "^1.45.0",
     "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "eslint-watch": "^8.0.0"
   }
 }
