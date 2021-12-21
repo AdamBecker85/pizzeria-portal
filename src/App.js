@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch } from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+//import { Switch } from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import Dashboard from './components/views/Dashboard/Dashboard';
