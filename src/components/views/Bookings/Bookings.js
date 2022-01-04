@@ -100,7 +100,7 @@ const Bookings = () => (
                 <TableCell className={styles.hour}>{row.hour}</TableCell> 
                 {row.tables.map((table) => {
                   return(
-                    <TableCell className={styles.book} key={table.id}>
+                    <TableCell className={styles.book} key={table.table}>
                       {renderActions(table.status, table)}
                     </TableCell>
                   );
@@ -112,10 +112,10 @@ const Bookings = () => (
       </Table>
     </Paper>
     
-    <Button className={styles.button} variant="contained" href={`/bookings/booking/:id`} activeClassName={'active'}>Booking Id</Button>
-    <Button className={styles.button} variant="contained" href={`/bookings/booking/new`} activeClassName={'active'}>New booking</Button>
-    <Button className={styles.button} variant="contained" href={`/bookings/event/:id`} activeClassName={'active'}>Event Id</Button>
-    <Button className={styles.button} variant="contained" href={`/bookings/event/new`} activeClassName={'active'}>New event</Button>
+    <Button className={styles.button} variant="contained" href={`/bookings/booking/:id`}>Booking Id</Button>
+    <Button className={styles.button} variant="contained" href={`/bookings/booking/new`}>New booking</Button>
+    <Button className={styles.button} variant="contained" href={`/bookings/event/:id`}>Event Id</Button>
+    <Button className={styles.button} variant="contained" href={`/bookings/event/new`}>New event</Button>
   </div>
 );
 
