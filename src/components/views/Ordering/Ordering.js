@@ -17,6 +17,7 @@ class Ordering extends React.Component {
       error: PropTypes.oneOfType([PropTypes.bool,PropTypes.string]),
     }),
     tables: PropTypes.array,
+    updateStatus: PropTypes.func,
   }
 
   componentDidMount(){
@@ -24,34 +25,40 @@ class Ordering extends React.Component {
     fetchTables();
   }
 
-  renderActions(status){
+  renderActions(row){
+    const status = row.status;
+
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button onClick={() => this.props.updateStatus(row.id, 'thinking')} href={process.env.PUBLIC_URL + '/waiter/order/new'}> thinking</Button>
+            <Button onClick={() => this.props.updateStatus(row.id, 'ordered')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button onClick={() => this.props.updateStatus(row.id, 'ordered')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <>
+            <Button onCLick={() => this.props.updateStatus(row.id, 'prepared')} href={process.env.PUBLIC_URL + '/waiter/order/:id'}>prepared</Button>
+          </>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={() => this.props.updateStatus(row.id, 'delivered')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button 
+            onClick={() => this.props.updateStatus(row.id, 'paid')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button 
+            onClick={() => this.props.updateStatus(row.id, 'free')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>free</Button>
         );
       default:
         return null;
@@ -104,7 +111,7 @@ class Ordering extends React.Component {
                       )}
                     </TableCell>
                     <TableCell>
-                      {this.renderActions(row.status)}
+                      {this.renderActions(row)}
                     </TableCell>
                   </TableRow>
                 ))}
