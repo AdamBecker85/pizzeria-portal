@@ -111,8 +111,8 @@ class Ordering extends React.Component {
               </TableBody>
             </Table>
           </Paper>
-          <Button className={styles.button} variant="contained" href={`/bookings/order/:id`} activeClassName={'active'}>Booking Id</Button>
-          <Button className={styles.button} variant="contained" href={`/bookings/order/new`} activeClassName={'active'}>Booking New</Button>
+          <Button className={styles.button} variant="contained" href={`/bookings/order/:id`}>Booking Id</Button>
+          <Button className={styles.button} variant="contained" href={`/bookings/order/new`}>Booking New</Button>
         </div>
       );
     }
