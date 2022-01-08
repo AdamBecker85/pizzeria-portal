@@ -43,7 +43,7 @@ class Ordering extends React.Component {
       case 'ordered':
         return (
           <>
-            <Button onCLick={() => this.props.updateStatus(row.id, 'prepared')} href={process.env.PUBLIC_URL + '/waiter/order/:id'}>prepared</Button>
+            <Button onClick={() => this.props.updateStatus(row.id, 'prepared')} href={process.env.PUBLIC_URL + '/waiter/order/:id'}>prepared</Button>
           </>
         );
       case 'prepared':
