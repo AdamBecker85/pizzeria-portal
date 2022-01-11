@@ -32,33 +32,33 @@ class Ordering extends React.Component {
       case 'free':
         return (
           <>
-            <Button onClick={() => this.props.updateStatus(row.id, 'thinking')} href={process.env.PUBLIC_URL + '/waiter/order/new'}> thinking</Button>
-            <Button onClick={() => this.props.updateStatus(row.id, 'ordered')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>new order</Button>
+            <Button onClick={() => {this.props.updateStatus(row.id, 'thinking');}}> thinking</Button>
+            <Button onClick={() => {this.props.updateStatus(row.id, 'ordered');}}>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button onClick={() => this.props.updateStatus(row.id, 'ordered')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>new order</Button>
+          <Button onClick={() => {this.props.updateStatus(row.id, 'ordered');}}>new order</Button>
         );
       case 'ordered':
         return (
           <>
-            <Button onClick={() => this.props.updateStatus(row.id, 'prepared')} href={process.env.PUBLIC_URL + '/waiter/order/:id'}>prepared</Button>
+            <Button onClick={() => {this.props.updateStatus(row.id, 'prepared');}}>prepared</Button>
           </>
         );
       case 'prepared':
         return (
-          <Button onClick={() => this.props.updateStatus(row.id, 'delivered')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>delivered</Button>
+          <Button onClick={() => {this.props.updateStatus(row.id, 'delivered');}}>delivered</Button>
         );
       case 'delivered':
         return (
           <Button 
-            onClick={() => this.props.updateStatus(row.id, 'paid')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>paid</Button>
+            onClick={() => {this.props.updateStatus(row.id, 'paid');}}>paid</Button>
         );
       case 'paid':
         return (
           <Button 
-            onClick={() => this.props.updateStatus(row.id, 'free')} href={process.env.PUBLIC_URL + '/waiter/order/new'}>free</Button>
+            onClick={() => {this.props.updateStatus(row.id, 'free');}}>free</Button>
         );
       default:
         return null;

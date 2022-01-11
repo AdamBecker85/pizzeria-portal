@@ -85,11 +85,13 @@ export default function reducer(statePart = [], action = {}) {
     case UPDATE_STATUS: {
       return {
         ...statePart,
-        loading: {
-          active: false,
-          error: false,
-        },
-
+        data: statePart.data.map((item) => {
+          if(item.id === action.payload.id){
+            return action.payload;
+          } else {
+            return item;
+          }
+        }),
       };
     }
     default:
